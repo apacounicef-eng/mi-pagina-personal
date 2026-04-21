@@ -10,3 +10,21 @@ header.addEventListener('click', function() {
     clics = clics + 1;
     contador.textContent = 'Clics: ' + clics;
 });
+
+const resetBtn = document.querySelector('#resetBtn');
+
+resetBtn.addEventListener('click', function(evento) {
+    evento.stopPropagation();
+    clics = 0;
+    contador.textContent = 'Clics: 0';
+    header.style.backgroundColor = '#4f46e5';
+});
+
+const barras = document.querySelectorAll('.progreso');
+
+barras.forEach(function(barra) {
+    const nivel = barra.getAttribute('data-nivel');
+    setTimeout(function() {
+        barra.style.width = nivel + '%';
+    }, 300);
+});
